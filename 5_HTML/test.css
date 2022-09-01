@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<head>
+<title> Test Flexbox</title>
+<link rel="stylesheet"href="test.css"
+</head>
+<body>
+<div class="main-container">
+<div class="shape"></div>
+<div class="shape"></div>
+</div>
+</body>
+</html>
+
+
+
