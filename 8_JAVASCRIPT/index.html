@@ -10,8 +10,11 @@
   <div id="result2"></div>
   
   <script>
+
     var a = 5;
+    let a = "kampus merdeka";
     let b = "kampus merdeka";
+    let c = "kampus merdeka";
     const nama = "Budi";
     let terdaftar = false;
     let lengkap_arr =[a, b, nama, terdaftar];
@@ -25,13 +28,54 @@
     console.log(nama + "terdaftar sebagai kegiatan kampus merdeka");
     }
 
-    a=b;
-
+    const foo = ['budi','sita','ayu']
+    a=foo[0];
+    b=foo[1];
+    c=foo[2];
     console.log("array = "+nama);
     console.log("a adalah = "+a);
     console.log("b adalah = "+b);
+    console.log("c adalah = "+c);
     perkenalan();
     
+//     class Bensin{
+//   constructor(nama, harga) {
+//     this.nama = nama
+//     this.harga = harga;
+//   }
+//   beliBensin(jumlahPerLiter) {
+//     return `Harga ${this.nama} : ${this.harga * jumlahPerLiter}`
+//   }
+// }
+
+// class Pertamina extends Bensin {
+//   constructor(nama, harga) {
+//     super(nama, harga);
+//   }
+//   beliBensin(jumlahPerLiter) {
+//     return `Harga bensin di Pertamina dengan jenis ${this.nama} : ${this.harga * jumlahPerLiter}`
+//   }
+// }
+
+// class Shell extends Bensin {
+//   constructor(nama, harga) {
+//     super(nama, harga);
+//   }
+//   beliBensin(jumlahPerLiter) {
+//     return `Harga bensin di Shell dengan jenis ${this.nama} : ${this.harga * jumlahPerLiter}`
+//   }
+// }
+
+// const pertalite = new Pertamina("Pertalite", 9000);
+// const shellSuper = new Shell("Super", 15420);
+// console.log(pertalite.beliBensin(10))
+// console.log(shellSuper.beliBensin(10))
+
+
     </script>
 </body>
 </html
+
+
+
+

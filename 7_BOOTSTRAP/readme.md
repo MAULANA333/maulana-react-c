@@ -12,4 +12,4 @@ CONTAINER/WADAH
 .container-fluid, yang width: 100%sama sekali breakpoints
 .container-{breakpoint}, yaitu width: 100%sampai breakpoint yang ditentukan
 ROW (Untuk membuat suatu kotak berdasarkan ukuran tertentu menyamping, maksimal dalam sebuah website adalah 12 row  )
-Column ( Untuk membuat suatu kotak berdasarkan ukuran tertentu Kebawah, maksimal dalam sebuah website adalah 12 Column  )
+Column ( Untuk membuat suatu kotak berdasarkan ukgituran tertentu Kebawah, maksimal dalam sebuah website adalah 12 Column  )
