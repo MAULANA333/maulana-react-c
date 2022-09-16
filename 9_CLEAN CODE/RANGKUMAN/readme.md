@@ -1,4 +1,4 @@
-Pada hari jumat tanggal 8 dan septermber2022 saya mempelajari materi tenttang clean code. adapun beberapa materi tentang clean code antara lain sebagai berikut:
+Pada hari jumat tanggal 9 septermber2022 saya mempelajari materi tenttang clean code. adapun beberapa materi tentang clean code antara lain sebagai berikut:
 
 
 clean code adakah istilah atau kode yang mudah dipahami, mudah dibaca, dan mudah diubah oleh programer

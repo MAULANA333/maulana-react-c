@@ -1,0 +1,10 @@
+Pada hari senin tanggal 12 september 2022 saya mempelajari tentang introduction React, dimana kita belajar mengenal React
+
+React JS adalah library JavaScript yang biasa digunakan saat membangun UI suatu website atau aplikasi web.
+ JavaScript adalah bahasa pemrograman yang dapat membantu kita membuat konten web yang dinamis, seperti form, slideshow, atau konten interaktif lainnya. 
+
+Dengan JavaScript, kita dapat membuat tampilan website yang lebih menarik. Nah, inilah mengapa library ini berguna untuk membangun UI, karena pengaplikasian kode JavaScript di website kita bisa menjadi lebih mudah.
+
+Kenapa harus React? karena React sudah popular dan sudah banyak orang yang menggunakannya, jadi kalau ada kesulitan atau trouble pada codingan kita, banyak jalan keluar yang bisa kita caridi website ataupun sebagainya.
+
+Virtual DOM (VDOM) adalah sebuah konsep dalam pemrograman di mana representasi ideal atau “virtual” dari antarmuka pengguna disimpan dalam memori dan disinkronkan dengan DOM “yang sebenarnya” oleh library seperti ReactDOM. Proses ini disebut reconciliation.
