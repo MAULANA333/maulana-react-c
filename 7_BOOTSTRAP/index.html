@@ -6,202 +6,189 @@
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link rel="stylesheet" href="Assets/css/style.css">
+    <style>:host {
+      --ntp-realbox-border-radius: calc(0.5 * var(--ntp-realbox-height));
+        --ntp-realbox-height: 44px;
+        --ntp-realbox-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
+        border-radius: var(--ntp-realbox-border-radius);
+        box-shadow: var(--ntp-realbox-shadow);
+        font-size: 16px;
+        height: var(--ntp-realbox-height);
+    }
+    
+    :host([is-dark]) {
+      --ntp-realbox-shadow: 0 2px 6px 0 rgba(23, 23, 23, 0.32);
+    }
+    
+    @media (forced-colors: active) {
+    :host {
+      border: 1px solid ActiveBorder;
+    }
+    
+    }
+    
+    :host([matches-are-visible]) {
+      box-shadow: none;
+    }
+    
+    :host([match-searchbox]) {
+      --ntp-realbox-height: 46px;
+        box-shadow: none;
+    }
+    
+    :host([match-searchbox]:not([matches-are-visible]):hover) {
+      box-shadow: var(--ntp-realbox-shadow);
+    }
+    
+    :host([match-searchbox]:not([is-dark]):not([matches-are-visible]):not(:hover)) {
+      border: 1px solid var(--search-box-border-color, var(--google-grey-300));
+        height: calc(var(--ntp-realbox-height) - 2px);
+    }
+    
+    #inputWrapper {
+      height: 100%;
+        position: relative;
+    }
+    
+    input {
+      background-color: var(--search-box-bg, white);
+        border: none;
+        border-radius: var(--ntp-realbox-border-radius);
+        color: var(--search-box-text);
+        font-family: inherit;
+        font-size: inherit;
+        height: 100%;
+        outline: none;
+        padding-inline-end:  44px;
+        padding-inline-start: 52px;
+        position: relative;
+        width: 100%;
+    }
+    
+    input::-webkit-search-decoration, input::-webkit-search-cancel-button, input::-webkit-search-results-button, input::-webkit-search-results-decoration {
+      display: none;
+    }
+    
+    input::placeholder {
+      color: var(--search-box-placeholder, var(--google-grey-700));
+    }
+    
+    input:focus, :host([matches-are-visible]) input {
+      background-color: var(--search-box-results-bg, white);
+    }
+    
+    input:hover {
+      background-color: var(--search-box-bg-hovered, white);
+    }
+    
+    ntp-realbox-icon {
+      height: 100%;
+        left: 12px;
+        position: absolute;
+        top: 0;
+    }
+    
+    :host-context([dir='rtl']) ntp-realbox-icon {
+      left: unset;
+        right: 12px;
+    }
+    
+    #voiceSearchButton {
+      background: url('chrome://new-tab-page/icons/googlemic_clr_24px.svg') no-repeat center;
+        background-size: 21px 21px;
+        border: none;
+        border-radius: 2px;
+        cursor: pointer;
+        height: 100%;
+        outline: none;
+        padding: 0;
+        pointer-events: auto;
+        position: absolute;
+        right: 16px;
+        width: 26px;
+    }
+    
+    :host-context([dir='rtl']) #voiceSearchButton {
+      left: 16px;
+        right: unset;
+    }
+    
+    :host-context(.focus-outline-visible) #voiceSearchButton:focus {
+      box-shadow: var(--ntp-focus-shadow);
+    }
+    
+    :-webkit-any(input, ntp-realbox-icon, #voiceSearchButton) {
+      z-index: 100;
+    }
+    
+    ntp-realbox-dropdown {
+      left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 99;
+    }
+    
+    </style>
+    <style>
+    .search-input input, .search input {
+    width: 94.7%;
+    padding: 11px 0 12px 1em;
+    color: #333;
+    outline: none;
+    height: 20px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background-color: #fff;
+    overflow: hidden;
+    }
+    </style>
   </head>
   <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-warning large shadow">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-        <span class="text-success">e</span>Startup </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
-              </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Sreenshoot</a>
-              </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Team</a>
-              </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown link
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-              </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <!-- Akhir Navbar -->
-<!-- Text Body -->
-<h1><p class="text-uppercase text-center">Simple Systeme Fordiscount </p></h1>
-<p class="text-lowercase text-center">Inter Cursus bibendum Augue Cursus</p>
-
-
-
-<!-- Akhir Text Body -->
-    <!-- Body -->
-
-    <div class="container text-fluid mx-auto">
-      <div class=" row justify-content-around text-center">
-        <div class="col-4" >
-          <img src="cloud.jpg"  class="img-fluid Justify-content-center" alt="" width="10%" height="10%">
-          <h6><P class="text-center"> INTRODUCING WHATSAPP </P></h6>
-          <p class="text-center ">lorem ipsum is simply dummy text of the printing and typesetting industry</p>
-          <p class="text-center "><a href="#" class="link-primary">Read more...</a></p>
-
-        </div>
-        <div class="col-4">
-          <img src="planet.jpg" class="img-fluid Justify-content-center" alt="" width="10%" height="10%">
-         <h6><P class="text-center"> USER FRIENDLY INTERFACE</P></h6>
-          <p class="text-center ">lorem ipsum is simply dummy text of the printing and typesetting industry</p>
-          <p class="text-center "><a href="#" class="link-primary">Read more...</a></p>
-        </div>
-        <div class="col-4">
-        <img src="asteroid.jpg"  class="img-fluid Justify-content-center"  alt="" width="10%" height="10%">
-         <h6><P class="text-center " style="text-align: center"> BUILD THE APP EVERYONE LOVE</P></h6>
-          <p class="text-center ">lorem ipsum is simply dummy text of the printing and typesetting industry</p>
-          
-          <p class="text-center "><a href="#" class="link-primary">Read more...</a></p>
-        </div>
-        </div>
-        <br>
-        <div class="container text-fluid mx-auto"></div>
-          <div class="col-1">
-          </div>
-          <div class="col-1">
-          </div>
-          <div class="col-1"></div>
-        </div>
-        <div class="container text-fluid">
-          <div class ="row">
-          <div class ="col-4">
-        </div>
-      </img>
-      </div>
-    </div>
-
-    <div class="container text-fluid mx-auto">
-      <div class="row">
-        <div class="col-5 d-flex Justify-content-center">
-          <img src="display_handphone.png" pt-4 class="img-fluid" alt="" width="70%" height="70%" >
-          <br>
-        </div>
-        <div class="col-7 ">
-          <div class="row">
-            <p>ESTARTUP UI Design Mobile </p>
-            <br>
-          </div>
-          <div class="row">
-            <p>Consecteta nipiscing St, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat 
-            </p>
-          </div>
-          <div class="row">
-            <ul>
-              <li>Creative Design</li>
-              <li>Retina Ready</li>
-              <li>Easy To Use</li>
-              <li>Unlimited Features</li>
-              <li>Unlimited Features</li>
-            </ul>
-          </div>
-          <br>
-        </div>
-      </div>
-    </div>
-    <!-- Akhir Body -->
-
-    <!-- Footer -->
-    <section id="contact">
-      <div class="container">
-        <div class="row">
-          <div class="col"></div>
-          </div>
-          </div>
-          </section>
-          <div></div>
-<div class="bg-warning">
-  <div class="container">
-  <footer class="row py-5 my-5 border-top">
-    <div class="col-4">
-      <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
-        <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
-      </a>
-      <h2>eStartup</h2>
-      <p class="text-muted"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi illo rem nihil architecto est perferendis saepe ea velit ducimus sapiente dolorum distinctio dolorem doloribus, porro magni! Officia natus voluptatum beatae.</p>
-    </div>
-
-    <div class="col">
-
-    </div>
-
-    <div class="col">
-      <h5> About Us</h5>
-      <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About Us</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features item</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Live Streaming</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Privacy Policy</a></li>
-      </ul>
-    </div>
-
-    <div class="col">
-      <h5>About Us</h5>
-      <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About Us</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">features item</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-      </ul>
-    </div>
-
-    <div class="col">
-      <h5>Support</h5>
-      <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Faq</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Editor Help</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Contact Us</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Privacy Policy</a></li>
-      </ul>
-    </div>
-
-    <div class="col">
-      <h5>About Us</h5>
-      <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About Us</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features item</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Live Streaming</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Privacy Policy</a></li>
-      </ul>
-    </div>
-  </footer>
+<!-- <form action="https://www.google.com/search" id="searchform" method="get" target="_top">
+<div class="search-input">
+<input aria-label="Search this blog..." autocomplete="off" name="q" placeholder="Search this blog..." required="required" value="" />
+<input name="as_sitesearch" type="hidden" value="https://jagoankode.blogspot.com/" />
 </div>
-</div>
+</form>
+     -->
+<!-- 
+<ntp-realbox id="realbox" shown="" is-dark="">
+  
+    <div id="inputWrapper">
+      <input id="input" type="search" autocomplete="off" spellcheck="false" role="combobox" placeholder="Telusuri Google atau ketik URL" aria-live="polite">
+      <ntp-realbox-icon id="icon" in-searchbox="" background-image="" mask-image="search.svg"></ntp-realbox-icon>
+      <button id="voiceSearchButton" title="Telusuri dengan suara"></button>
+      <ntp-realbox-dropdown id="matches" role="listbox" hidden="">
+  
+      </ntp-realbox-dropdown>
+  </div> -->
+  <div class="container ">
+    <div class="row">
+      <h1 style="display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;"> TODO </h1>
+    </div>
+    <div class="row "style="display: flex;
+      align-items: center;
+      justify-content: center;
+      ">
+        <form>
+          <div class="row" style="align-items: center;">
+            <div class="col-10" style="height: 50%;">
+              <label for="exampleInputEmail1" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="col-2">
 
-    
-    <!--Akhir Footer -->
-    <h1></h1>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+              <button type="submit" class="btn btn-primary ">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
   </body>
 </html>

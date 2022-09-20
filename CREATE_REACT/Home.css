@@ -1,0 +1,15 @@
+body{
+    display: flex ;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    min-height: 100vh;
+}
+
+.app-container (
+    height: 400px;
+    width: 300px;
+    background-image: linearGradient(to :right, #ff8177 0%, )
+)
