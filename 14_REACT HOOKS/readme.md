@@ -1,5 +1,5 @@
 REACT HOOKS
-
+pada Senin 19 september 2022 saya mempelajari materi tentang  React Hooks , Hook adalah fungsi spesial yang memungkinkan Anda “terhubung” dengan fitur-fitur di React. Sebagai contoh, useState adalah sebuah Hook yang memungkinkan Anda memberi state pada function components
 
 ===========================
 FUNCTION COMPONENT
