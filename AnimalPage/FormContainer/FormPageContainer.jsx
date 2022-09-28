@@ -1,7 +1,14 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import FormPage from "../Components/FormPage.jsx";
+import { setUserEmail } from "../feature/userSlice.js";
 
 const FormPageContainer = () => {
+  const count = useSelector((state)=> state.counter.value);
+  const dispacth = useDispatch();
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -39,8 +46,11 @@ const FormPageContainer = () => {
       ev.stopPropagation();
     }
     //alert(name + "\n" + email + "\n" + password + "\n" + gender)
-    alert(formData.name + "\n" + formData.email
-      + "\n" + formData.password + "\n" + formData.gender + "\n" + formData.hobby)
+    // alert(formData.name + "\n" + formData.email
+    //   + "\n" + formData.password + "\n" + formData.gender + "\n" + formData.hobby)
+    dispacth (setUserEmail(formData.email))
+    navigate("/");
+    
 
     ev.preventDefault();
   }
@@ -49,6 +59,7 @@ const FormPageContainer = () => {
               name={formData.name}
               password={formData.password}
               isPasswordError={isPasswordError}
+              count={count}
               handleSubmit={handleSubmit}
               handleChange={handleChangeFormData}/>
   )

@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import FormPage from "../component/FormPage.jsx";
 import { AnimalPage } from "../Components/AnimalPage.jsx";
 import { animals } from "../data.js";
 
